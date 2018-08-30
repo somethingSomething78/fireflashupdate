@@ -14,7 +14,11 @@ Tested to work with Debian 9 stable (stretch).
 ```bash
  $chmod +x fireflashupdate.sh
 ```
-3) Execute the script to install or update Adobe Flash Player for Mozilla Firefox
+3) Execute the script to install or update Adobe Flash Player for Mozilla Firefox:
+
+```bash
+ $./fireflashupdate.sh
+```
 
 
 License and Donations
