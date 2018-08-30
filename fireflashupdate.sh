@@ -4,7 +4,7 @@
 #LICENSE                                                   
 ########
 
-# Adobe Flash Player updater for Mozilla Firefox. Please visit the project's website at: https://github.com/cybernova/fireflashupdate
+# Adobe Flash Player installer/updater for Mozilla Firefox. Please visit the project's website at: https://github.com/cybernova/fireflashupdate
 # Copyright (C) 2018 Andrea Dari (andreadari@protonmail.com)                                   
 #                                                                                                       
 # This shell script is free software: you can redistribute it and/or modify                             
@@ -41,7 +41,7 @@ fi
 
 # Check if the current version installed is the latest
 if [ -r "$FIREFOX_FLASH_INSTALL_DIR/libflashplayer.so" ] ; then
-  CUR_VER=$(grep -z 'FlashPlayer_' /usr/lib/mozilla/plugins/libflashplayer.so | cut -c 13-22 | tr _ .)
+  CUR_VER=$(grep -z 'FlashPlayer_' /usr/lib/mozilla/plugins/libflashplayer.so | cut -d _ -f 2-5 | tr _ .)
   if [ "$CUR_VER" = "$VERSION" ]; then
     echo "The latest Flash Player ($VERSION) is already installed"
     exit 0
