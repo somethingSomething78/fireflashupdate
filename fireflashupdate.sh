@@ -33,17 +33,22 @@ esac
 # Check Adobe Flash Player's latest version from Adobe's website
 VERSION=$(wget -qO- https://fpdownload.macromedia.com/pub/flashplayer/masterversion/masterversion.xml | grep -m1 "NPAPI_linux version" | cut -d \" -f 2 | tr , .)
 
-# Error out if $VERSON is unset, e.g. because previous command failed
+# Error out if $VERSION is unset, e.g. because previous command failed
 if [ -z "$VERSION" ]; then
-  echo "Could not work out the latest version; exiting" >&2
+  printf "Could not work out the latest version; exiting\n" >&2
   exit 1
 fi
 
+# Create plugins' destination directory if not exists
+if [ ! -e "$FIREFOX_FLASH_INSTALL_DIR" ]; then
+	sudo mkdir -p "$FIREFOX_FLASH_INSTALL_DIR"
+fi
+
 # Check if the current version installed is the latest
-if [ -r "$FIREFOX_FLASH_INSTALL_DIR/libflashplayer.so" ] ; then
+if [ -r "$FIREFOX_FLASH_INSTALL_DIR/libflashplayer.so" ]; then
   CUR_VER=$(grep -z 'FlashPlayer_' /usr/lib/mozilla/plugins/libflashplayer.so | cut -d _ -f 2-5 | tr _ .)
   if [ "$CUR_VER" = "$VERSION" ]; then
-    echo "The latest Flash Player ($VERSION) is already installed"
+    printf "The latest Flash Player ($VERSION) is already installed\n"
     exit 0
   fi
 fi
