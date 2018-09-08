@@ -46,7 +46,7 @@ fi
 
 # Check if the current version installed is the latest
 if [ -r "$FIREFOX_FLASH_INSTALL_DIR/libflashplayer.so" ]; then
-  CUR_VER=$(grep -z 'FlashPlayer_' /usr/lib/mozilla/plugins/libflashplayer.so | cut -d _ -f 2-5 | tr _ .)
+  CUR_VER=$(grep -z 'FlashPlayer_' $FIREFOX_FLASH_INSTALL_DIR/libflashplayer.so | cut -d _ -f 2-5 | tr _ .)
   if [ "$CUR_VER" = "$VERSION" ]; then
     printf "The latest Flash Player ($VERSION) is already installed\n"
     exit 0
@@ -63,7 +63,7 @@ cd /tmp
 wget "https://fpdownload.adobe.com/pub/flashplayer/pdc/$VERSION/flash_player_npapi_linux.${ARCH}.tar.gz"
 
 # Extract the contents of the tarball to the Firefox's plugins dir
-sudo tar xf flash_player_npapi_linux.${ARCH}.tar.gz  -C $FIREFOX_FLASH_INSTALL_DIR libflashplayer.so 
+sudo tar -xof flash_player_npapi_linux.${ARCH}.tar.gz -C $FIREFOX_FLASH_INSTALL_DIR libflashplayer.so 
 
 #Removing tmp files
 rm flash_player_npapi_linux.${ARCH}.tar.gz
