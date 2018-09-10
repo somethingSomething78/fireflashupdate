@@ -63,7 +63,11 @@ cd /tmp
 wget "https://fpdownload.adobe.com/pub/flashplayer/pdc/$VERSION/flash_player_npapi_linux.${ARCH}.tar.gz"
 
 # Extract the contents of the tarball to the Firefox's plugins dir
-sudo tar -xof flash_player_npapi_linux.${ARCH}.tar.gz -C $FIREFOX_FLASH_INSTALL_DIR libflashplayer.so 
+if [ $UID -eq 0 ]; then
+	tar -xof flash_player_npapi_linux.${ARCH}.tar.gz -C $FIREFOX_FLASH_INSTALL_DIR libflashplayer.so
+else
+	sudo tar -xof flash_player_npapi_linux.${ARCH}.tar.gz -C $FIREFOX_FLASH_INSTALL_DIR libflashplayer.so 
+fi
 
 #Removing tmp files
 rm flash_player_npapi_linux.${ARCH}.tar.gz
