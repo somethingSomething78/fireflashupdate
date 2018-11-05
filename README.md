@@ -1,9 +1,9 @@
 fireflashupdate
 ====
 
-Adobe Flash Player installer/updater for Mozilla Firefox.
+Adobe Flash Player installer/updater for Mozilla Firefox on Linux.
 
-Tested to work with Debian 9 stable (stretch).
+Tested in Debian 9 stable (stretch), but should work on every Linux distro.
 
 ## Getting started
 
@@ -20,10 +20,19 @@ Tested to work with Debian 9 stable (stretch).
  $./fireflashupdate.sh
 ```
 
+## How To
+
+- Execute the script daily with cron/anacron for automatic update:
+```bash
+$sudo chown root:root fireflashupdate.sh
+$sudo mv fireflashupdate.sh /etc/cron.daily/
+```
 
 License and Donations
 -------
 
 Coded by Andrea Dari and licensed under GNU GPL v2.0
 
-Support me for updates and new projects: <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=andreadari91%40gmail%2ecom&lc=IT&item_name=Andrea%20Dari%20FOSS%20developer%20support&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="[paypal]" /></a> Thanks!
+Support me for updates and new projects: <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=andreadari91%40gmail%2ecom&lc=IT&item_name=Andrea%20Dari%20FOSS%20developer%20support&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="[paypal]" /></a>
+
+Thank you!
