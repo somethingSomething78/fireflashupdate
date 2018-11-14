@@ -25,7 +25,7 @@ Tested in Debian 9 stable (stretch), but should work on every Linux distro.
 - Execute the script daily with cron/anacron for automatic update:
 ```bash
 $sudo chown root:root fireflashupdate.sh
-$sudo mv fireflashupdate.sh /etc/cron.daily/
+$sudo mv fireflashupdate.sh /etc/cron.daily/fireflashupdate
 ```
 
 License and Donations
